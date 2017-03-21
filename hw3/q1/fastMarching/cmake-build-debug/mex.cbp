@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mex"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mex">
+				<Option output="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/mex.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/../../../../include"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include-fixed"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/../../../../mingw32/include"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include/c++"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include/c++/mingw32"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include/c++/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 mex"/>
+					<CompileFile command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mex/fast">
+				<Option output="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/mex.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/../../../../include"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include-fixed"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/../../../../mingw32/include"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include/c++"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include/c++/mingw32"/>
+					<Add directory="d:\tools\mingw\bin\../lib/gcc/mingw32/4.9.3/include/c++/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 mex/fast"/>
+					<CompileFile command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Tools/MinGW/bin/mingw32-make.exe -f &quot;D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/fheap/fib.cpp">
+			<Option target="mex"/>
+		</Unit>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/fheap/fib.h">
+			<Option target="mex"/>
+		</Unit>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/fheap/fibpriv.h">
+			<Option target="mex"/>
+		</Unit>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/fmm.cpp">
+			<Option target="mex"/>
+		</Unit>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/fmm.h">
+			<Option target="mex"/>
+		</Unit>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/fmm_mex.cpp">
+			<Option target="mex"/>
+		</Unit>
+		<Unit filename="D:/WorkSpace/Matlab/Geometric Computer Vision/hw3/q1_ben/code/mex/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
