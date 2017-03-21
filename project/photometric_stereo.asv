@@ -1,0 +1,45 @@
+function [rho, n] = photometric_stereo(I, L)
+
+
+[N1, N2, M] = size(I);
+N = N1*N2;
+I = reshape(I, [N, M]);
+
+V = L \ I';
+% mask = reshape(mask, [N, M]);
+
+% Create a mask index for efficient computation.
+% maskIndex = zeros(N, 1);
+% for i = 1:M
+%   maskIndex = maskIndex*2 + mask(:,i);
+% end
+% uniqueMaskIndices = unique(maskIndex);
+% 
+% % Estimate scaled normal vectors.
+% b = nan(3, N);
+% for i = 1:N
+% %   idx = uniqueMaskIndices(iIdx);
+%   % Find all pixels with this index.
+% %   pixelIdx = find(maskIndex==idx);
+%     pixelIdx = I(i,:);
+%   % Find all images that are active by this index.
+% %   imageTag = mask(pixelIdx(1), :);
+% %   if (sum(imageTag) < 3)
+% %     continue;
+% %   end
+%   % Create a 3xM' lighting matrix L.
+% %   Li = L(:, imageTag);
+%   % Create an M'xN' matrix of image intensities.
+%   Ii = I(imageTag, pixelIdx);
+%   % Compute the scaled normal.
+%   b(:, pixelIdx) = L' \ Ii;
+% end
+
+% Get albedo and unit normal vector.
+b = reshape(V', [N1, N2, 3]);
+rho = sqrt(sum(b.^2, 3));
+n = b ./ repmat(rho, [1 1 3]);
+
+
+end
+
