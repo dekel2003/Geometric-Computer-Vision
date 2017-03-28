@@ -23,8 +23,8 @@ E = sum(sum((Ds - D_).^2));
 
 %% steepest descent to minimize the error E
 max_iter = 100;
-lambda = 0.01;
-
+lambda = 0.005;
+ZBU = Z;
 for iter = 1:max_iter
     % eps for avoid numerical errors that make sqrt return imaginary
     % matrix..
@@ -35,18 +35,25 @@ for iter = 1:max_iter
     diffD = - (Z') * diffD_;
 
     diffE = ((Ds - D_) * diffD') ./ numelZ;
+    Z_prev = Z;
     Z = normr(Z - lambda * diffE);
     Ds = real(acos((Z*Z')));
     E_prev = E;
     E = sum(sum((Ds - D_).^2));
     
     if (E>E_prev)
-        lambda = lambda * 2;
+        lambda = lambda * 1.53;
+        Z_prev = ZBU;
+%         E = E_prev;
     else
-        lambda = lambda / 2;
+        lambda = lambda / 1.33;
+        ZBU = Z_prev;
     end
-    
+    if abs(lambda) > 1 || abs(lambda) < eps
+        break
+    end
 end
+Z=ZBU;
 
 end
 
