@@ -2,24 +2,30 @@ clear;
 close all;
 
 %% load pictures to cell array
-num_frames = 17;
-img = cell(num_frames,1);
-for k = 1:num_frames
-    fileName = sprintf('f%d.jpg', k);
-    img{k} = imread(fileName);
-end
+% num_frames = 17;
+% img = cell(num_frames,1);
+% for k = 1:num_frames
+%     fileName = sprintf('f%d.jpg', k);
+%     img{k} = imread(fileName);
+% end
+
+%% load video
+v = VideoReader('fvid.mp4');
+video = read(v);
+num_frames = size(video,4)/4;
+clear video;
 
 %% measure distance between pics
-D = zeros(numel(img));
+D = zeros(num_frames);
 for k1 = 1:num_frames-1
     for k2 = k1+1:num_frames
 %         img1 = rgb2gray(imresize(img{k1}, 0.4));
 %         img2 = rgb2gray(imresize(img{k2}, 0.4));
 
-        img1 = imresize(img{k1},0.4);
-        img1 = [img1(:,:,1) img1(:,:,2) img1(:,:,3)];
-        img2 = imresize(img{k2},0.4);
-        img2 = [img2(:,:,1) img2(:,:,2) img2(:,:,3)];
+        img1 = imresize(read(v,k1*4),0.4);
+        img1 = [(img1(:,:,1)-mean(img1(:,:,1))), 128+img1(:,:,2)-mean(img1(:,:,2)), 256+img1(:,:,3)-mean(img1(:,:,3))];
+        img2 = imresize(read(v,k2*4),0.4);
+        img2 = [(img2(:,:,1)-mean(img2(:,:,1))), 128+img2(:,:,2)-mean(img2(:,:,2)), 256+img2(:,:,3)-mean(img2(:,:,3))];
         
 %         [optimizer, metric] = imregconfig('multimodal');
 %         optimizer.InitialRadius = 0.009;
