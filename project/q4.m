@@ -10,7 +10,7 @@ close all;
 % end
 
 %% load video
-v = VideoReader('fvid2.mp4');
+v = VideoReader('fvid3.mp4');
 video = read(v);
 num_frames = size(video,4);
 clear video;
@@ -60,6 +60,7 @@ PP = [];
 r = max(max(D))/pi;
 for k = 1:num_frames
     im = imresize(read(v,k), 0.4);
+    im = im(24:end-24, 40:end-40, :);
     z = mds_dist(k,:);
     p = size(im)/2;
     [H,W,~] = size(im);
@@ -67,8 +68,8 @@ for k = 1:num_frames
     A = A - p(2);
     B = B - p(1);
     %%% change max p...
-    A = A /sqrt(r);
-    B = B /sqrt(r);
+    A = A /sqrt(r)/5;
+    B = B /sqrt(r)/5;
     pos = reshape(cat(3,B,A,zeros(size(A)),ones(size(A))),[],4);
     c = im;
     c = reshape(c,[],3);
@@ -102,7 +103,7 @@ for k = 1:num_frames
     T = [eye(3) z' ; 0 0 0 1];
     pos = pos * T';
     pos = pos(:,1:3);
-    pos = normr(pos(:,1:3));
+%     pos = normr(pos(:,1:3));
     
     PP=cat(1,PP,pos);
     CC=cat(1,CC,c);
