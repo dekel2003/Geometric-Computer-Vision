@@ -12,20 +12,22 @@ close all;
 %% load video
 v = VideoReader('fvid.mp4');
 video = read(v);
-num_frames = size(video,4)/4;
+num_frames = size(video,4)/8;
 clear video;
 
 %% measure distance between pics
 num_frames = double(round(num_frames));
 D = zeros(num_frames);
+G = sparse(D);
 for k1 = 1:num_frames-1
-    for k2 = k1+1:num_frames
+    for kk2 = k1+1:k1+3
+        k2 = mod(kk2,num_frames);
 %         img1 = rgb2gray(imresize(img{k1}, 0.4));
 %         img2 = rgb2gray(imresize(img{k2}, 0.4));
 
-        img1 = imresize(read(v,k1*4),0.4);
+        img1 = imresize(read(v,k1*8),0.4);
         img1 = [(img1(:,:,1)-mean(mean(img1(:,:,1)))), 128+img1(:,:,2)-mean(mean(img1(:,:,2))), 256+img1(:,:,3)-mean(mean(img1(:,:,3)))];
-        img2 = imresize(read(v,k2*4),0.4);
+        img2 = imresize(read(v,k2*8),0.4);
         img2 = [(img2(:,:,1)-mean(mean(img2(:,:,1)))), 128+img2(:,:,2)-mean(mean(img2(:,:,2))), 256+img2(:,:,3)-mean(mean(img2(:,:,3)))];
         
 %         [optimizer, metric] = imregconfig('multimodal');
@@ -60,7 +62,7 @@ for k1 = 1:num_frames-1
         D(k2,k1) = D(k2,k1) + d;
     end
 end
-
+D = graphallshortestpaths(G);
 mds_dist = sphere_embedding( D, 3 );
 scatter3(mds_dist(:,1),mds_dist(:,2),mds_dist(:,3));
 
@@ -69,7 +71,7 @@ CC = [];
 PP = [];
 r = max(max(D))/pi;
 for k = 1:num_frames
-    im = imresize(img{k}, 0.3);
+    im = imresize(read(v,k*32), 0.3);
     z = mds_dist(k,:);
     p = size(im)/2;
     [H,W,~] = size(im);
@@ -112,7 +114,8 @@ for k = 1:num_frames
     CC=cat(1,CC,c);
 end
 
-showPointCloud(PP,CC,'MarkerSize',50);
+PP=PP + 0.1 * (rand(size(PP))-0.5);
+showPointCloud(PP,CC,'MarkerSize',10);
 
 
 
