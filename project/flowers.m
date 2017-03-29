@@ -10,7 +10,7 @@ close all;
 % end
 
 %% load video
-v = VideoReader('fvid.mp4');
+v = VideoReader('fvid2.mp4');
 video = read(v);
 num_frames = size(video,4)/8;
 clear video;
