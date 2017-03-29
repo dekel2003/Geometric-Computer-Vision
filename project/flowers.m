@@ -16,18 +16,18 @@ num_frames = size(video,4)/8;
 clear video;
 
 %% measure distance between pics
-num_frames = double(round(num_frames));
+num_frames = double(round(num_frames))-1;
 D = zeros(num_frames);
 G = sparse(D);
 for k1 = 1:num_frames-1
     for kk2 = k1+1:k1+3
-        k2 = mod(kk2,num_frames);
+        k2 = mod(kk2-1,num_frames)+1;
 %         img1 = rgb2gray(imresize(img{k1}, 0.4));
 %         img2 = rgb2gray(imresize(img{k2}, 0.4));
 
-        img1 = imresize(read(v,k1*8),0.4);
+        img1 = double(imresize(read(v,k1*8),0.4));
         img1 = [(img1(:,:,1)-mean(mean(img1(:,:,1)))), 128+img1(:,:,2)-mean(mean(img1(:,:,2))), 256+img1(:,:,3)-mean(mean(img1(:,:,3)))];
-        img2 = imresize(read(v,k2*8),0.4);
+        img2 = double(imresize(read(v,k2*8),0.4));
         img2 = [(img2(:,:,1)-mean(mean(img2(:,:,1)))), 128+img2(:,:,2)-mean(mean(img2(:,:,2))), 256+img2(:,:,3)-mean(mean(img2(:,:,3)))];
         
 %         [optimizer, metric] = imregconfig('multimodal');
@@ -55,11 +55,11 @@ for k1 = 1:num_frames-1
 
         img1 = double(img1(:));
         img2 = double(img2(:));
-        h1 = hist(img1-mean(mean(img1)), 128);
-        h2 = hist(img2-mean(mean(img2)), 128);
+        h1 = hist(img1, 128);
+        h2 = hist(img2, 128);
         d = sqrt(sum((h2-h1).^2))/norm(p*2);
-        D(k1,k2) = D(k1,k2) + d;
-        D(k2,k1) = D(k2,k1) + d;
+        G(k1,k2) = G(k1,k2) + d;
+        G(k2,k1) = G(k2,k1) + d;
     end
 end
 D = graphallshortestpaths(G);
