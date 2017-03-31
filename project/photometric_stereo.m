@@ -9,7 +9,7 @@ V = L \ I';
 
 b = reshape(V', [N1, N2, 3]);
 rho = sqrt(sum(b.^2, 3));
-n = b ./ repmat(rho, [1 1 3]);
+n = b ./ repmat(rho, [1 1 3]); % could have changed it to normr(b)?
 
 end
 
